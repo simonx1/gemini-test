@@ -16,9 +16,11 @@ def generate(file_path):
             "top_p": 1,
             "top_k": 32
         },
+        stream=True,
     )
   
-    print(responses)
+    for response in responses:
+      print(response.candidates[0].content.parts[0].text)
 
 def main():
     parser = argparse.ArgumentParser(description='Process image file for content generation.')
